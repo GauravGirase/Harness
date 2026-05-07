@@ -24,12 +24,14 @@ newgrp docker
 ## Signup with Harness https://harness.io
 ### Install delegates (Docker)
 ```bash
-docker run -d --cpus=1 --memory=2g \
-  -e DELEGATE_NAME=docker-delegate \
+docker run -d --cpus=1 --memory=2g --net=host \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /tmp:/tmp \
+  -e DELEGATE_NAME=docker-delegate-ci \
   -e NEXT_GEN="true" \
   -e DELEGATE_TYPE="DOCKER" \
   -e ACCOUNT_ID=H5ffoP7pS4WUIHJTwRhGag \
   -e DELEGATE_TOKEN=YmYzZTFlNDUwY2Q4MDQyMjNkMDFiNDZlZDNlMzc1Mzc= \
-  -e DELEGATE_TAGS="" \
+  -e DELEGATE_TAGS="linux-amd64" \
   -e MANAGER_HOST_AND_PORT=https://app.harness.io us-docker.pkg.dev/gar-prod-setup/harness-public/harness/delegate:26.04.89003
 ```
