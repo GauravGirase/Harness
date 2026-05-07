@@ -21,6 +21,8 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker  ubuntu
 newgrp docker
 ```
+### What are connectors?
+connectors to connect Harness to your tools, such as Kubernetes clusters, code and artifact repositories, and cloud platforms.
 ## Signup with Harness https://harness.io
 ### Install delegates (Docker)
 ```bash
