@@ -31,7 +31,18 @@ docker run -d --cpus=1 --memory=2g --net=host \
   -e NEXT_GEN="true" \
   -e DELEGATE_TYPE="DOCKER" \
   -e ACCOUNT_ID=H5ffoP7pS4WUIHJTwRhGag \
-  -e DELEGATE_TOKEN=YmYzZTFlNDUwY2Q4MDQyMjNkMDFiNDZlZDNlMzc1Mzc= \
+  -e DELEGATE_TOKEN=<TOKEM> \
   -e DELEGATE_TAGS="linux-amd64" \
   -e MANAGER_HOST_AND_PORT=https://app.harness.io us-docker.pkg.dev/gar-prod-setup/harness-public/harness/delegate:26.04.89003
 ```
+### Install Set up a Linux local runner
+- Install the Harness Docker Runner
+https://github.com/harness/harness-docker-runner/releases
+```bash
+wget https://github.com/harness/harness-docker-runner/releases/download/v0.1.22/harness-docker-runner-linux-amd64
+sudo chmod +x harness-docker-runner-linux-amd64
+sudo -E ./harness-docker-runner-linux-amd64 server
+```
+
+
+
