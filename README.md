@@ -43,6 +43,53 @@ wget https://github.com/harness/harness-docker-runner/releases/download/v0.1.22/
 sudo chmod +x harness-docker-runner-linux-amd64
 sudo -E ./harness-docker-runner-linux-amd64 server
 ```
-
+### pipeline.yaml
+```bash
+pipeline:
+  name: Demo-1
+  identifier: Demo1
+  projectIdentifier: default_project
+  orgIdentifier: default
+  description: Demo pipeline for harness poc
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.Githubconnector
+        repoName: Harness
+        build: <+input>
+  stages:
+    - stage:
+        name: CI
+        identifier: CI
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: org.Githubconnector
+                    repoName: Harness
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+```
 
 
