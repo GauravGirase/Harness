@@ -21,3 +21,15 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker  ubuntu
 newgrp docker
 ```
+## Signup with Harness https://harness.io
+### Install delegates (Docker)
+```bash
+docker run -d --cpus=1 --memory=2g \
+  -e DELEGATE_NAME=docker-delegate \
+  -e NEXT_GEN="true" \
+  -e DELEGATE_TYPE="DOCKER" \
+  -e ACCOUNT_ID=H5ffoP7pS4WUIHJTwRhGag \
+  -e DELEGATE_TOKEN=YmYzZTFlNDUwY2Q4MDQyMjNkMDFiNDZlZDNlMzc1Mzc= \
+  -e DELEGATE_TAGS="" \
+  -e MANAGER_HOST_AND_PORT=https://app.harness.io us-docker.pkg.dev/gar-prod-setup/harness-public/harness/delegate:26.04.89003
+```
